@@ -45,6 +45,26 @@
       "value": "查找网点"
     },
     {
+      "name": "assistant",
+      "value": "助手"
+    },
+    {
+      "name": "setting_telephone",
+      "value": "更多热线"
+    },
+    {
+      "name": "setting_law",
+      "value": "法律条款"
+    },
+    {
+      "name": "setting_about",
+      "value": "关于"
+    },
+    {
+      "name": "setting_advice",
+      "value": "投诉与建议"
+    },
+    {
       "name": "http_error_message",
       "value": "网络请求失败，请稍后尝试！"
     }

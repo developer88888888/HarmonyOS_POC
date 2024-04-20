@@ -101,6 +101,10 @@
       "value": "20vp"
     },
     {
+      "name": "vp_twenty_two",
+      "value": "22vp"
+    },
+    {
       "name": "vp_twenty_four",
       "value": "24vp"
     },
@@ -139,6 +143,26 @@
     {
       "name": "capsule_height",
       "value": "40vp"
+    },
+    {
+      "name": "vp_forty_eight",
+      "value": "48vp"
+    },
+    {
+      "name": "setting_list_strokeWidth",
+      "value": "0.25vp"
+    },
+    {
+      "name": "setting_list_startMargin",
+      "value": "42vp"
+    },
+    {
+      "name": "setting_list_endMargin",
+      "value": "24vp"
+    },
+    {
+      "name": "setting_list_borderRadius",
+      "value": "16vp"
     }
   ]
 }

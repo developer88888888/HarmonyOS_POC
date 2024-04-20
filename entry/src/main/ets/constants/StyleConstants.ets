@@ -28,6 +28,8 @@ export class StyleConstants {
 
   static readonly FONT_WEIGHT_FOUR: number = 400;
 
+  static readonly FONT_WEIGHT_THREE: number = 300;
+
   static readonly TWO_TEXT_LINE: number = 2;
 
   static readonly FULL_OPACITY: number = 1;
@@ -59,4 +61,6 @@ export class StyleConstants {
   static readonly MINUS_ONE: number = -1;
 
   static readonly COMMON_SPACE = 12;
+
+  static readonly SET_LIST_WIDTH = '42%';
 }
