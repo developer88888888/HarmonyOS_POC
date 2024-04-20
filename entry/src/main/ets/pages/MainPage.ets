@@ -18,6 +18,7 @@ import { PageConstants } from '../constants/PageConstants';
 
 import { HomePage } from '../pages/home/HomePage';
 import { buttonInfo, ButtonInfoModel } from '../entity/MainPageData';
+import { MyPage } from './my/MyPage';
 
 @Entry
 @Component
@@ -51,7 +52,7 @@ struct MainPage {
         .tabBar(this.BottomNavigation(buttonInfo[PageConstants.INTERESTS_INDEX]))
 
         TabContent() {
-          HomePage()
+          MyPage()
         }
         .tabBar(this.BottomNavigation(buttonInfo[PageConstants.MY_INDEX]))
       }

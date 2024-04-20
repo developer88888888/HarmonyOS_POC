@@ -57,4 +57,6 @@ export class StyleConstants {
   static readonly HALF_ONE: number = 0.5;
 
   static readonly MINUS_ONE: number = -1;
+
+  static readonly COMMON_SPACE = 12;
 }
