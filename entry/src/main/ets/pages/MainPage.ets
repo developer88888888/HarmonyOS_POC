@@ -17,6 +17,7 @@ import { StyleConstants } from '../constants/StyleConstants';
 import { PageConstants } from '../constants/PageConstants';
 
 import { HomePage } from '../pages/home/HomePage';
+import { AccountList } from '../pages/home/AccountList';
 import { buttonInfo, ButtonInfoModel } from '../entity/MainPageData';
 
 @Entry
@@ -31,7 +32,7 @@ struct MainPage {
         index: this.currentPageIndex
       }) {
         TabContent() {
-          HomePage()
+          AccountList()
         }
         .tabBar(this.BottomNavigation(buttonInfo[PageConstants.HOME_INDEX]))
 
