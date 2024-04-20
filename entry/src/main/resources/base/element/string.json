@@ -33,6 +33,18 @@
       "value": "我的"
     },
     {
+      "name": "contact_us",
+      "value": "联系我们"
+    },
+    {
+      "name": "site_service",
+      "value": "网点服务"
+    },
+    {
+      "name": "find_site",
+      "value": "查找网点"
+    },
+    {
       "name": "http_error_message",
       "value": "网络请求失败，请稍后尝试！"
     }
