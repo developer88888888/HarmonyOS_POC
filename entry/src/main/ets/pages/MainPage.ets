@@ -17,7 +17,7 @@ import { StyleConstants } from '../constants/StyleConstants';
 import { PageConstants } from '../constants/PageConstants';
 
 import { HomePage } from '../pages/home/HomePage';
-import { AccountList } from '../pages/home/AccountList';
+import { AccountList } from './account/AccountList';
 import { buttonInfo, ButtonInfoModel } from '../entity/MainPageData';
 import { MyPage } from './my/MyPage';
 

@@ -67,6 +67,14 @@
     {
       "name": "http_error_message",
       "value": "网络请求失败，请稍后尝试！"
+    },
+    {
+      "name": "action_make_payment",
+      "value": "Make a payment"
+    },
+    {
+      "name": "action_manage_card",
+      "value": "Manage Card"
     }
   ]
 }

@@ -1,11 +1,11 @@
-import { Account, AFDomesticAccount, Balance } from  '../../entity/Account';
-import { PageConstants } from '../../constants/PageConstants';
-import { StyleConstants } from '../../constants/StyleConstants';
+import { Account, AFDomesticAccount, Balance } from '../../entity/Account';
+import { AccountDetails } from './AccountDetails';
+import router from '@ohos.router';
+import { Logger } from '../../utils/Logger';
 
 @Entry
 @Component
 export struct AccountList {
-  @State message: string = 'Hello World';
   private accountList:Array<AFDomesticAccount> = this.getAccountListData();
 
   build() {
@@ -30,7 +30,7 @@ export struct AccountList {
               .fontColor(Color.Red)
           }.width('100%').justifyContent(FlexAlign.End)
         }.backgroundColor(Color.White).padding(16)
-      }.backgroundColor(Color.Gray).padding(12)
+      }.backgroundColor($r('app.color.twenty_alpha_black')).padding(12)
       Row() {
         Text(`My debit accounts`)
           .width('100%')
@@ -68,16 +68,21 @@ export struct AccountList {
                     .textAlign(TextAlign.End)
                 }
               }
-          }
+          }.onClick(() => {
+            Logger.error("on account list item clicked!")
+            router.pushUrl({
+              url: "pages/account/AccountDetails"
+            }, router.RouterMode.Single)
+          })
         })
       }.divider({
         strokeWidth: 1,
-        color: Color.Gray,
+        color: $r('app.color.twenty_alpha_black'),
         startMargin: 0,
         endMargin: 0}).padding(16)
     }
     .height('100%')
-    .backgroundColor(0xF1F3F5)
+    .backgroundColor(Color.White)
   }
 
   getAccountListData():Array<AFDomesticAccount>{
