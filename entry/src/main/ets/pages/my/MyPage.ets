@@ -1,5 +1,7 @@
 import { StyleConstants } from '../../constants/StyleConstants';
 import ItemData from '../../entity/ItemData';
+import { jumpToWeb } from '../../utils/Common';
+import { Logger } from '../../utils/Logger';
 import myViewModel from '../../viewmodel/MyViewModel';
 
 @Component
@@ -42,7 +44,8 @@ export struct MyPage {
                 }
                 .height($r('app.float.vp_forty_eight'))
                 .onClick(() => {
-
+                  Logger.error("onClick")
+                  jumpToWeb(getContext(this).resourceManager.getStringSync(item.title), "https://www.hsbc.com.cn/zh-cn/help/contact/#feedback")
                 })
               }, (item: ItemData) => JSON.stringify(item))
             }
