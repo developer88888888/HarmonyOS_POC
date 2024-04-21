@@ -82,7 +82,7 @@ export struct AccountList {
         endMargin: 0}).padding(16)
     }
     .height('100%')
-    .backgroundColor(Color.White)
+    .backgroundColor(Color.White).layoutWeight(1)
   }
 
   getAccountListData():Array<AFDomesticAccount>{

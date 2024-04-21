@@ -1,14 +1,15 @@
 import { Account, AFDomesticAccount, Balance } from '../../entity/Account';
-import { PageConstants } from '../../constants/PageConstants';
 import { StyleConstants } from '../../constants/StyleConstants';
 import ItemData from '../../entity/ItemData';
 import router from '@ohos.router';
-import { media } from '@kit.MediaKit';
+import { AFTransactionItem } from '../../entity/AFTransactionItem';
 
 @Entry
 @Component
 export struct AccountDetails {
+ // @State account: AFDomesticAccount = new AFDomesticAccount("Advance","23234",new Balance("34","USD"))
   @State account: AFDomesticAccount = router.getParams() as AFDomesticAccount
+
   build() {
     Column() {
       Row({ space: StyleConstants.COMMON_SPACE }) {
@@ -25,11 +26,11 @@ export struct AccountDetails {
         }
       }.width('100%').backgroundColor(Color.White).height(50).padding(10)
       Row(){
-        Text(`-163.00`)
+        Text(`${this.account.accountBalance.amount}`)
           .fontSize(20)
           .fontColor(Color.Black)
           .textAlign(TextAlign.Center)
-        Text(`GBP`)
+        Text(`${this.account.accountBalance.currencyCode}`)
           .fontSize(13)
           .fontColor($r('app.color.sixty_alpha_black'))
           .textAlign(TextAlign.Center)
@@ -70,7 +71,26 @@ export struct AccountDetails {
       }
       .alignItems(HorizontalAlign.Start)
       .margin({ top: 12,left: 12,right:12,bottom: 12})
-
+      Row() {
+        Text(`Activity`)
+          .fontSize(16)
+          .fontColor(Color.Black)
+          .fontWeight(500)
+          .textAlign(TextAlign.Start).margin(12)
+      }.backgroundColor(Color.White).width('100%').height(50)
+      List() {
+        ForEach(this.getTransactionHistoryData(), (item: AFTransactionItem) => {
+          ListItem() {
+            this.transactionCell(item)
+          }
+          .onClick(() => {
+            //Logger.error("onClick")
+            //jumpToWeb(getContext(this).resourceManager.getStringSync(item.title), "https://www.hsbc.com.cn/zh-cn/help/contact/#feedback")
+          })
+        }, (item: AFTransactionItem) => JSON.stringify(item))
+      }
+      .backgroundColor(Color.White)
+      .width('100%').layoutWeight(1)
     }
     .width('100%')
     .backgroundColor($r('app.color.twenty_alpha_black'))
@@ -82,6 +102,20 @@ export struct AccountDetails {
       new ItemData($r('app.string.action_manage_card'), $r('app.media.up'))
     ];
     return settingListData;
+  }
+
+  getTransactionHistoryData():Array<AFTransactionItem>{
+    let listData: AFTransactionItem[] = [
+      new AFTransactionItem("1","Something","LOG ON","Sales","343.56","USD","Dec 11, 2019",""),
+      new AFTransactionItem("2","Something","LO5G ON","Sales","43.56","USD","Dec 11, 2019",""),
+      new AFTransactionItem("3","Something","L5OG ON","Sales","-3943.56","USD","Dec 11, 2019",""),
+      new AFTransactionItem("4","Something","LOG ON","Sales","3343.56","USD","Dec 11, 2019",""),
+      new AFTransactionItem("5","Something","LOG ON","Sales","1343.56","USD","Dec 11, 2019",""),
+      new AFTransactionItem("6","Something","L4OG ON","Sales","-6343.56","USD","Dec 11, 2019",""),
+      new AFTransactionItem("7","Something","LOG ON","Sales","-3.56","USD","Dec 11, 2019",""),
+      new AFTransactionItem("8","Something","LOG ON","Sales","40.86","USD","Dec 11, 2019","")
+    ]
+    return listData;
   }
 
   @Builder
@@ -109,5 +143,41 @@ export struct AccountDetails {
       left: $r('app.float.vp_eight'),
       right: $r('app.float.vp_twenty_two')
     })
+  }
+
+  @Builder
+  transactionCell(item: AFTransactionItem) {
+    Column() {
+      Row() {
+        Text(item.transactionDate)
+          .fontSize(12)
+          .fontColor(Color.Black)
+          .fontWeight(500)
+          .textAlign(TextAlign.Start)
+      }.backgroundColor($r('app.color.twenty_alpha_black')).width('100%').height(24).padding({left: 12})
+
+      Row() {
+        Text(item.title+':'+item.subTitle)
+          .fontSize(12)
+          .fontColor(Color.Black).textAlign(TextAlign.Start)
+        Text(item.amount+' '+item.currency)
+          .fontSize(12)
+          .fontColor(this.getFontColor(item)).layoutWeight(1)
+          .textAlign(TextAlign.End).margin({right:16}).fontWeight(600)
+      }.width('100%').padding({left: 12,top:12}).height(25)
+
+      Text(item.description)
+        .fontSize(12)
+        .fontColor(Color.Black)
+        .textAlign(TextAlign.Start).width('100%').padding({left: 12,bottom: 12})
+    }.width('100%')
+  }
+
+  getFontColor(item: AFTransactionItem): Color{
+    if(item.amount.startsWith("-")){
+      return Color.Black
+    }else{
+      return Color.Green
+    }
   }
 }
