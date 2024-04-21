@@ -2,13 +2,28 @@ import { Account, AFDomesticAccount, Balance } from '../../entity/Account';
 import { PageConstants } from '../../constants/PageConstants';
 import { StyleConstants } from '../../constants/StyleConstants';
 import ItemData from '../../entity/ItemData';
+import router from '@ohos.router';
+import { media } from '@kit.MediaKit';
 
 @Entry
 @Component
 export struct AccountDetails {
-
+  @State account: AFDomesticAccount = router.getParams() as AFDomesticAccount
   build() {
     Column() {
+      Row({ space: StyleConstants.COMMON_SPACE }) {
+        Image($r('app.media.back'))
+          .width($r('app.float.vp_twenty_two'))
+          .height($r('app.float.vp_twenty_two')).align(Alignment.Start).onClick(() =>{
+          router.back()
+        })
+        Column(){
+          Text(`${this.account.accountName}`)
+            .fontSize($r('app.float.middle_font_size')).textAlign(TextAlign.Start)
+          Text(`${this.account.accountNumber}`)
+            .fontSize($r('app.float.small_font_size')).textAlign(TextAlign.Start)
+        }
+      }.width('100%').backgroundColor(Color.White).height(50).padding(10)
       Row(){
         Text(`-163.00`)
           .fontSize(20)
@@ -19,7 +34,7 @@ export struct AccountDetails {
           .fontColor($r('app.color.sixty_alpha_black'))
           .textAlign(TextAlign.Center)
           .margin(6)
-      }
+      }.margin({top:16})
       Row(){
         Text(`Balance as of Jan 13, 2022`)
           .fontSize(12)
@@ -54,10 +69,10 @@ export struct AccountDetails {
         .margin({ top: $r('app.float.vp_twelve') })
       }
       .alignItems(HorizontalAlign.Start)
-      .margin({ top: $r('app.float.vp_twenty_four') })
+      .margin({ top: 12,left: 12,right:12,bottom: 12})
 
     }
-    .width('100%').padding(12)
+    .width('100%')
     .backgroundColor($r('app.color.twenty_alpha_black'))
   }
 
