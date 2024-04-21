@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>title</title>
+    <script type="text/javascript">
+    window.onload = function () {
+      console.log('page finish load');
+      setTimeout(() => {
+        window.callOhosNative.showToast('this message is From H5 to Native');
+      }, 1000);
+    }
+  </script>
+    <style>
+        .custom-size {
+          width: 250px;
+          height: 150px;
+          font-size: 32px;
+        }
+        .custom-button {
+          background-color: #3498db;
+          color: white;
+          padding: 10px 20px;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+          font-size: 24px
+        }
+    </style>
+</head>
+
+<body>
+<button class="custom-size" onclick="openDialog()">Click Me!</button>
+<p id="demo"></p>
+<script src="./js/index.js"></script>
+
+<dialog id="myDialog">
+    <h1>对话框标题</h1>
+    <p style="font-size: 36px;">this message is From Native to H5</p>
+    <button class="custom-button" onclick="closeDialog()">关闭</button>
+</dialog>
+</body>
+
+</html>

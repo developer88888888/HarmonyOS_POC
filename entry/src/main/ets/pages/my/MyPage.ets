@@ -31,6 +31,10 @@ export struct MyPage {
             .width(StyleConstants.FULL_WIDTH)
             .backgroundColor(Color.White)
             .borderRadius($r('app.float.vp_four'))
+            .onClick(() => {
+              Logger.error("onClick")
+              jumpToWeb("test1.html", $rawfile("test1.html"))
+            })
           }
           .alignItems(HorizontalAlign.Start)
 
