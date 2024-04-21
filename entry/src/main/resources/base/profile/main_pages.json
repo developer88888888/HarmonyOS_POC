@@ -2,7 +2,8 @@
   "src": [
     "pages/SplashPage",
     "pages/MainPage",
-    "pages/home/AccountList",
+    "pages/account/AccountList",
+    "pages/account/AccountDetails",
     "view/WebPage"
   ]
 }
