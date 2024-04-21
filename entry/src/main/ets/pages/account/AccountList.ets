@@ -71,7 +71,7 @@ export struct AccountList {
           }.onClick(() => {
             Logger.error("on account list item clicked!")
             router.pushUrl({
-              url: "pages/account/AccountDetails"
+              url: "pages/account/AccountDetails",params : item
             }, router.RouterMode.Single)
           })
         })
