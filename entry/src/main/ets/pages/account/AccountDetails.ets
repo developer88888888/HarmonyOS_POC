@@ -4,6 +4,7 @@ import ItemData from '../../entity/ItemData';
 import router from '@ohos.router';
 import { AFTransactionItem } from '../../entity/AFTransactionItem';
 import accountViewModel from '../../viewmodel/AccountViewModel'
+import { jumpToWeb } from '../../utils/Common';
 
 @Entry
 @Component
@@ -53,7 +54,7 @@ export struct AccountDetails {
             .height($r('app.float.vp_forty_eight'))
             .onClick(() => {
               //Logger.error("onClick")
-              //jumpToWeb(getContext(this).resourceManager.getStringSync(item.title), "https://www.hsbc.com.cn/zh-cn/help/contact/#feedback")
+              jumpToWeb(getContext(this).resourceManager.getStringSync(item.title), "https://www.hsbc.com.cn/zh-cn/help/contact/#feedback")
             })
           }, (item: ItemData) => JSON.stringify(item))
         }
@@ -86,7 +87,7 @@ export struct AccountDetails {
           }
           .onClick(() => {
             //Logger.error("onClick")
-            //jumpToWeb(getContext(this).resourceManager.getStringSync(item.title), "https://www.hsbc.com.cn/zh-cn/help/contact/#feedback")
+            jumpToWeb(getContext(this).resourceManager.getStringSync($r('app.string.site_service')), "https://www.hsbc.com.cn/zh-cn/help/contact/#feedback")
           })
         }, (item: AFTransactionItem) => JSON.stringify(item))
       }

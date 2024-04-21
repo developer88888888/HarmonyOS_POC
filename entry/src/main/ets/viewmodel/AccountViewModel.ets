@@ -3,6 +3,10 @@ import { AFTransactionItem } from '../entity/AFTransactionItem';
 import ItemData from '../entity/ItemData';
 
 export class AccountViewModel {
+  getAccountListDateFromServer(){
+
+  }
+
   getAccountListData(): Array<AFDomesticAccount> {
     let listData: AFDomesticAccount[] = [
       new AFDomesticAccount(
