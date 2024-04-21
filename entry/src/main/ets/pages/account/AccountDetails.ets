@@ -29,9 +29,9 @@ export struct AccountDetails {
       }
       Column() {
         List() {
-          ForEach(this.getSettingListData(), (item: ItemData) => {
+          ForEach(this.getActionListData(), (item: ItemData) => {
             ListItem() {
-              this.settingCell(item)
+              this.actionCell(item)
             }
             .height($r('app.float.vp_forty_eight'))
             .onClick(() => {
@@ -61,7 +61,7 @@ export struct AccountDetails {
     .backgroundColor($r('app.color.twenty_alpha_black'))
   }
 
-  getSettingListData(): Array<ItemData> {
+  getActionListData(): Array<ItemData> {
     let settingListData: ItemData[] = [
       new ItemData($r('app.string.action_make_payment'), $r('app.media.up')),
       new ItemData($r('app.string.action_manage_card'), $r('app.media.up'))
@@ -70,7 +70,7 @@ export struct AccountDetails {
   }
 
   @Builder
-  settingCell(item: ItemData) {
+  actionCell(item: ItemData) {
     Row() {
       Row({ space: StyleConstants.COMMON_SPACE }) {
         Image(item.img)
