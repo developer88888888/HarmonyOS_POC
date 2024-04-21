@@ -78,21 +78,19 @@ export struct AccountDetails {
           .fontWeight(500)
           .textAlign(TextAlign.Start).margin(12)
       }.backgroundColor(Color.White).width('100%').height(50)
-     // Column() {
-        List() {
-          ForEach(this.getTransactionHistoryData(), (item: AFTransactionItem) => {
-            ListItem() {
-              this.transactionCell(item)
-            }
-            .onClick(() => {
-              //Logger.error("onClick")
-              //jumpToWeb(getContext(this).resourceManager.getStringSync(item.title), "https://www.hsbc.com.cn/zh-cn/help/contact/#feedback")
-            })
-          }, (item: AFTransactionItem) => JSON.stringify(item))
-        }
-        .backgroundColor(Color.White)
-        .width('100%')
-     // }
+      List() {
+        ForEach(this.getTransactionHistoryData(), (item: AFTransactionItem) => {
+          ListItem() {
+            this.transactionCell(item)
+          }
+          .onClick(() => {
+            //Logger.error("onClick")
+            //jumpToWeb(getContext(this).resourceManager.getStringSync(item.title), "https://www.hsbc.com.cn/zh-cn/help/contact/#feedback")
+          })
+        }, (item: AFTransactionItem) => JSON.stringify(item))
+      }
+      .backgroundColor(Color.White)
+      .width('100%').layoutWeight(1)
     }
     .width('100%')
     .backgroundColor($r('app.color.twenty_alpha_black'))
@@ -110,11 +108,11 @@ export struct AccountDetails {
     let listData: AFTransactionItem[] = [
       new AFTransactionItem("1","Something","LOG ON","Sales","343.56","USD","Dec 11, 2019",""),
       new AFTransactionItem("2","Something","LO5G ON","Sales","43.56","USD","Dec 11, 2019",""),
-      new AFTransactionItem("3","Something","L5OG ON","Sales","3943.56","USD","Dec 11, 2019",""),
+      new AFTransactionItem("3","Something","L5OG ON","Sales","-3943.56","USD","Dec 11, 2019",""),
       new AFTransactionItem("4","Something","LOG ON","Sales","3343.56","USD","Dec 11, 2019",""),
       new AFTransactionItem("5","Something","LOG ON","Sales","1343.56","USD","Dec 11, 2019",""),
-      new AFTransactionItem("6","Something","L4OG ON","Sales","6343.56","USD","Dec 11, 2019",""),
-      new AFTransactionItem("7","Something","LOG ON","Sales","3.56","USD","Dec 11, 2019",""),
+      new AFTransactionItem("6","Something","L4OG ON","Sales","-6343.56","USD","Dec 11, 2019",""),
+      new AFTransactionItem("7","Something","LOG ON","Sales","-3.56","USD","Dec 11, 2019",""),
       new AFTransactionItem("8","Something","LOG ON","Sales","40.86","USD","Dec 11, 2019","")
     ]
     return listData;
@@ -164,7 +162,7 @@ export struct AccountDetails {
           .fontColor(Color.Black).textAlign(TextAlign.Start)
         Text(item.amount+' '+item.currency)
           .fontSize(12)
-          .fontColor(Color.Black).layoutWeight(1)
+          .fontColor(this.getFontColor(item)).layoutWeight(1)
           .textAlign(TextAlign.End).margin({right:16}).fontWeight(600)
       }.width('100%').padding({left: 12,top:12}).height(25)
 
@@ -173,5 +171,13 @@ export struct AccountDetails {
         .fontColor(Color.Black)
         .textAlign(TextAlign.Start).width('100%').padding({left: 12,bottom: 12})
     }.width('100%')
+  }
+
+  getFontColor(item: AFTransactionItem): Color{
+    if(item.amount.startsWith("-")){
+      return Color.Black
+    }else{
+      return Color.Green
+    }
   }
 }
