@@ -25,11 +25,11 @@ export struct AccountDetails {
         }
       }.width('100%').backgroundColor(Color.White).height(50).padding(10)
       Row(){
-        Text(`-163.00`)
+        Text(`${this.account.accountBalance.amount}`)
           .fontSize(20)
           .fontColor(Color.Black)
           .textAlign(TextAlign.Center)
-        Text(`GBP`)
+        Text(`${this.account.accountBalance.currencyCode}`)
           .fontSize(13)
           .fontColor($r('app.color.sixty_alpha_black'))
           .textAlign(TextAlign.Center)
