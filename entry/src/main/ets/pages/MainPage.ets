@@ -20,6 +20,7 @@ import { HomePage } from '../pages/home/HomePage';
 import { AccountList } from './account/AccountList';
 import { buttonInfo, ButtonInfoModel } from '../entity/MainPageData';
 import { MyPage } from './my/MyPage';
+import { GlobePage } from './globe/GlobePage';
 
 @Entry
 @Component
@@ -38,7 +39,7 @@ struct MainPage {
         .tabBar(this.BottomNavigation(buttonInfo[PageConstants.HOME_INDEX]))
 
         TabContent() {
-          HomePage()
+          GlobePage()
         }
         .tabBar(this.BottomNavigation(buttonInfo[PageConstants.GLOBE_INDEX]))
 
