@@ -7,6 +7,7 @@ import accountViewModel from '../../viewmodel/AccountViewModel'
 @Component
 export struct AccountList {
   private accountList:Array<AFDomesticAccount> = accountViewModel.getAccountListData()
+ // private list = accountViewModel.getAccountListDateFromServer("http://www.baidu.com")
 
   build() {
     Column() {
@@ -69,10 +70,11 @@ export struct AccountList {
                 }
               }
           }.onClick(() => {
+            accountViewModel.getAccountListDateFromServer("http://www.baidu.com")
             Logger.error("on account list item clicked!")
-            router.pushUrl({
-              url: "pages/account/AccountDetails",params : item
-            }, router.RouterMode.Single)
+            // router.pushUrl({
+            //   url: "pages/account/AccountDetails",params : item
+            // }, router.RouterMode.Single)
           })
         })
       }.divider({

@@ -1,10 +1,32 @@
 import { AFDomesticAccount, Balance } from '../entity/Account';
 import { AFTransactionItem } from '../entity/AFTransactionItem';
 import ItemData from '../entity/ItemData';
+import util from '@ohos.util';
+import axios, { AxiosResponse } from "@ohos/axios";
+import promptAction from '@ohos.promptAction';
+import { Logger } from '../utils/Logger';
 
 export class AccountViewModel {
-  getAccountListDateFromServer(){
 
+  getAccountListDateFromServer(url:string) {
+    // TODO: 知识点: 使用Axios获取Response.data为GBK格式的网络数据。
+    axios<string, AxiosResponse<string>, null>({
+      method: "get",
+      url: url,
+      responseType: 'ARRAY_BUFFER'
+    })
+      .then((res: AxiosResponse) => {
+        // TODO: 知识点: 使用util.TextDecoder解码。
+        // 首先使用create构造TextDecoder实例，将编码格式设置为gbk。
+        const textDecoder = util.TextDecoder.create('utf-8', { ignoreBOM: true });
+        // 其次使用decodeWithStream方法通过解码输入的参数，输出对应UTF-8格式的文本字符串。其中传入的参数必须为Uint8Array格式，因此需将获取的数据使用Uint8Array方法转换数组类型。
+        const result = new Uint8Array(res.data);
+        const resultString = textDecoder.decodeWithStream(result, { stream: false });
+        Logger.debug(resultString)
+        // 解析json字符串。
+        //const jsonResult = JSON.parse(resultString) as JsonResult;
+        //const jsonObj: Array<AFDomesticAccount> = jsonResult.ListModel;
+      })
   }
 
   getAccountListData(): Array<AFDomesticAccount> {
@@ -50,5 +72,8 @@ export class AccountViewModel {
     return listData;
   }
 
+}
+class JsonResult {
+  ListModel: Array<AFDomesticAccount> = [];
 }
 export default new AccountViewModel();
