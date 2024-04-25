@@ -41,6 +41,10 @@
       "value": "网点服务"
     },
     {
+      "name": "my_site",
+      "value": "查看我的网点"
+    },
+    {
       "name": "find_site",
       "value": "查找网点"
     },

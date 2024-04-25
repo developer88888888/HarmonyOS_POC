@@ -3,6 +3,7 @@ import ItemData from '../../entity/ItemData';
 import { jumpToWeb } from '../../utils/Common';
 import { Logger } from '../../utils/Logger';
 import myViewModel from '../../viewmodel/MyViewModel';
+import { router } from '@kit.ArkUI';
 
 @Component
 export struct MyPage {
@@ -22,18 +23,35 @@ export struct MyPage {
               Text($r('app.string.find_site'))
                 .fontSize($r('app.float.smaller_font_size'))
                 .padding({ right: $r('app.float.vp_twelve') })
-
-              // Line().lineStyle()
             }
             .justifyContent(FlexAlign.SpaceBetween)
             .margin({ top: $r('app.float.vp_six') })
             .height($r('app.float.vp_fifty_six'))
             .width(StyleConstants.FULL_WIDTH)
+            .border({
+              radius: {topLeft: $r('app.float.vp_four'), topRight: $r('app.float.vp_four')}
+            })
             .backgroundColor(Color.White)
-            .borderRadius($r('app.float.vp_four'))
             .onClick(() => {
               Logger.error("onClick")
               jumpToWeb("test1.html", $rawfile("test1.html"))
+            })
+            Line().lineStyle()
+            Row() {
+              Text($r('app.string.my_site'))
+                .fontSize($r('app.float.big_font_size'))
+                .fontWeight(StyleConstants.FONT_WEIGHT_THREE)
+                .padding({ left: $r('app.float.vp_twelve') })
+            }
+            .justifyContent(FlexAlign.SpaceBetween)
+            .height($r('app.float.vp_fifty_six'))
+            .width(StyleConstants.FULL_WIDTH)
+            .border({
+              radius: {bottomLeft: $r('app.float.vp_four'), bottomRight: $r('app.float.vp_four')}
+            })
+            .backgroundColor(Color.White)
+            .onClick(() => {
+              router.pushUrl({ url: "view/WebViewWithJsBridge" })
             })
           }
           .alignItems(HorizontalAlign.Start)
@@ -110,7 +128,7 @@ export struct MyPage {
 @Extend(Line)
 function lineStyle() {
   .width(StyleConstants.FULL_WIDTH)
-  .height($r('app.float.vp_four'))
+  .height($r('app.float.vp_one'))
   .backgroundColor($r('app.color.five_alpha_black'))
 }
 

@@ -4,6 +4,7 @@
     "pages/MainPage",
     "pages/account/AccountList",
     "pages/account/AccountDetails",
-    "view/WebPage"
+    "view/WebPage",
+    "view/WebViewWithJsBridge"
   ]
 }
