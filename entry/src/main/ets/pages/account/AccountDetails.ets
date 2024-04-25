@@ -1,8 +1,10 @@
-import { Account, AFDomesticAccount, Balance } from '../../entity/Account';
+import { AFDomesticAccount, Balance } from '../../entity/Account';
 import { StyleConstants } from '../../constants/StyleConstants';
 import ItemData from '../../entity/ItemData';
 import router from '@ohos.router';
 import { AFTransactionItem } from '../../entity/AFTransactionItem';
+import accountViewModel from '../../viewmodel/AccountViewModel'
+import { jumpToWeb } from '../../utils/Common';
 
 @Entry
 @Component
@@ -45,14 +47,15 @@ export struct AccountDetails {
       }
       Column() {
         List() {
-          ForEach(this.getActionListData(), (item: ItemData) => {
+          ForEach(accountViewModel.getActionListData(), (item: ItemData) => {
             ListItem() {
               this.actionCell(item)
             }
             .height($r('app.float.vp_forty_eight'))
             .onClick(() => {
               //Logger.error("onClick")
-              //jumpToWeb(getContext(this).resourceManager.getStringSync(item.title), "https://www.hsbc.com.cn/zh-cn/help/contact/#feedback")
+              accountViewModel.getAccountListDateFromServer("http://www.baidu.com")
+             // jumpToWeb(getContext(this).resourceManager.getStringSync(item.title), "https://www.hsbc.com.cn/zh-cn/help/contact/#feedback")
             })
           }, (item: ItemData) => JSON.stringify(item))
         }
@@ -79,13 +82,13 @@ export struct AccountDetails {
           .textAlign(TextAlign.Start).margin(12)
       }.backgroundColor(Color.White).width('100%').height(50)
       List() {
-        ForEach(this.getTransactionHistoryData(), (item: AFTransactionItem) => {
+        ForEach(accountViewModel.getTransactionHistoryData(), (item: AFTransactionItem) => {
           ListItem() {
             this.transactionCell(item)
           }
           .onClick(() => {
             //Logger.error("onClick")
-            //jumpToWeb(getContext(this).resourceManager.getStringSync(item.title), "https://www.hsbc.com.cn/zh-cn/help/contact/#feedback")
+            jumpToWeb(getContext(this).resourceManager.getStringSync($r('app.string.site_service')), "https://www.hsbc.com.cn/zh-cn/help/contact/#feedback")
           })
         }, (item: AFTransactionItem) => JSON.stringify(item))
       }
@@ -94,28 +97,6 @@ export struct AccountDetails {
     }
     .width('100%')
     .backgroundColor($r('app.color.twenty_alpha_black'))
-  }
-
-  getActionListData(): Array<ItemData> {
-    let settingListData: ItemData[] = [
-      new ItemData($r('app.string.action_make_payment'), $r('app.media.up')),
-      new ItemData($r('app.string.action_manage_card'), $r('app.media.up'))
-    ];
-    return settingListData;
-  }
-
-  getTransactionHistoryData():Array<AFTransactionItem>{
-    let listData: AFTransactionItem[] = [
-      new AFTransactionItem("1","Something","LOG ON","Sales","343.56","USD","Dec 11, 2019",""),
-      new AFTransactionItem("2","Something","LO5G ON","Sales","43.56","USD","Dec 11, 2019",""),
-      new AFTransactionItem("3","Something","L5OG ON","Sales","-3943.56","USD","Dec 11, 2019",""),
-      new AFTransactionItem("4","Something","LOG ON","Sales","3343.56","USD","Dec 11, 2019",""),
-      new AFTransactionItem("5","Something","LOG ON","Sales","1343.56","USD","Dec 11, 2019",""),
-      new AFTransactionItem("6","Something","L4OG ON","Sales","-6343.56","USD","Dec 11, 2019",""),
-      new AFTransactionItem("7","Something","LOG ON","Sales","-3.56","USD","Dec 11, 2019",""),
-      new AFTransactionItem("8","Something","LOG ON","Sales","40.86","USD","Dec 11, 2019","")
-    ]
-    return listData;
   }
 
   @Builder

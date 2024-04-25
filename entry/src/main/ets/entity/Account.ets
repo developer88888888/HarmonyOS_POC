@@ -1,14 +1,3 @@
-import fetch from '@system.fetch';
-
-export class Account {
-  name: string;
-  balance: string;
-
-  constructor(name: string, balance: string) {
-    this.name = name;
-    this.balance = balance;
-  }
-}
 
 export class AFDomesticAccount {
   accountName: string;

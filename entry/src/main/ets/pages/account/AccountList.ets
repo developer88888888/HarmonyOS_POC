@@ -1,12 +1,13 @@
-import { Account, AFDomesticAccount, Balance } from '../../entity/Account';
-import { AccountDetails } from './AccountDetails';
+import { AFDomesticAccount, Balance } from '../../entity/Account';
 import router from '@ohos.router';
 import { Logger } from '../../utils/Logger';
+import accountViewModel from '../../viewmodel/AccountViewModel'
 
 @Entry
 @Component
 export struct AccountList {
-  private accountList:Array<AFDomesticAccount> = this.getAccountListData();
+  private accountList:Array<AFDomesticAccount> = accountViewModel.getAccountListData()
+ // private list = accountViewModel.getAccountListDateFromServer("http://www.baidu.com")
 
   build() {
     Column() {
@@ -69,10 +70,11 @@ export struct AccountList {
                 }
               }
           }.onClick(() => {
+            accountViewModel.getAccountListDateFromServer("http://www.baidu.com")
             Logger.error("on account list item clicked!")
-            router.pushUrl({
-              url: "pages/account/AccountDetails",params : item
-            }, router.RouterMode.Single)
+            // router.pushUrl({
+            //   url: "pages/account/AccountDetails",params : item
+            // }, router.RouterMode.Single)
           })
         })
       }.divider({
@@ -83,27 +85,6 @@ export struct AccountList {
     }
     .height('100%')
     .backgroundColor(Color.White).layoutWeight(1)
-  }
-
-  getAccountListData():Array<AFDomesticAccount>{
-    let listData: AFDomesticAccount[] = [
-      new AFDomesticAccount(
-        "HSBC Premier Saving",
-        "123456789",
-        new Balance("123.98","USD")
-      ),
-      new AFDomesticAccount(
-        "HSBC Advance Saving",
-        "567888",
-        new Balance("323.98","USD")
-      ),
-      new AFDomesticAccount(
-        "HSBC Premier Saving",
-        "5647888",
-        new Balance("23.98","USD")
-      )
-    ]
-    return listData;
   }
 
 }
