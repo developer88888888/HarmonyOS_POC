@@ -27,7 +27,7 @@ module.exports = "div {\n  -webkit-box-sizing: border-box;\n          box-sizing
 /***/ "./src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<!--The content below is only a placeholder and can be replaced.-->\n<div class=\"page-content\">\n  <div class=\"type-box\">\n    <div class=\"type-title\">种类</div>\n    <div class=\"type-item-box\">\n      <div class=\"type-item\">Note</div>\n      <div class=\"type-item\">Telegraphic</div>\n    </div>\n  </div>\n\n  <div class=\"rate-box\">\n    <div class=\"rate-box-title\">\n      <div class=\"rate-box-title-item\">货币换算器</div>\n      <div class=\"rate-box-title-item\" (click)=\"callNative()\">重置</div>\n    </div>\n    <div class=\"rate-box-content\">\n      <div class=\"rate-box-content-side\">\n        <div>CNY</div>\n        <div style=\"padding: 20px 0;\">1.00</div>\n      </div>\n      <div class=\"rate-box-content-icon\">exchange</div>\n      <div class=\"rate-box-content-side\">\n        <div>USD</div>\n        <div style=\"padding: 20px 0;\">1.00</div>\n      </div>\n    </div>\n    <div style=\"text-align: center;padding-bottom: 20px;\">1人民币=0.15美元</div>\n  </div>\n\n  <div class=\"tips-box\">\n    汇率受市场变化和交易时间的影响，在交易前需要您确认有7位小数的实际汇率。\n  </div>\n\n  <div class=\"table-box\">\n    <div class=\"table-title\">外汇汇率</div>\n    <div class=\"table-column\">\n      <div class=\"table-column-item\">货币</div>\n      <div class=\"table-column-item\">买入价</div>\n      <div class=\"table-column-item\">卖出价</div>\n    </div>\n    <div class=\"table-column\" *ngFor=\"let item of array\">\n      <div class=\"table-column-item\">{{ item.coint }}</div>\n      <div class=\"table-column-item\">{{ item.price1 }}</div>\n      <div class=\"table-column-item\">{{ item.price2 }}</div>\n    </div>\n  </div>\n\n  <div class=\"tips-bottom-box\">\n    <div>\n      上次更新时间为2021年02月18日CST\n    </div>\n    <div>\n      这些汇率只是指示性汇率，汇率是根据交易日开始时的价格确定的。您在每笔交易前需要确认汇率。\n    </div>\n  </div>\n\n  <div class=\"button-box\">\n    <div class=\"button\">\n      外汇服务\n    </div>\n  </div>\n</div>"
+module.exports = "<!--The content below is only a placeholder and can be replaced.-->\n<!-- <div class=\"page-content\">\n  <div class=\"type-box\">\n    <div class=\"type-title\">种类</div>\n    <div class=\"type-item-box\">\n      <div class=\"type-item\">Note</div>\n      <div class=\"type-item\">Telegraphic</div>\n    </div>\n  </div>\n\n  <div class=\"rate-box\">\n    <div class=\"rate-box-title\">\n      <div class=\"rate-box-title-item\">货币换算器</div>\n      <div class=\"rate-box-title-item\" (click)=\"callNative()\">重置</div>\n    </div>\n    <div class=\"rate-box-content\">\n      <div class=\"rate-box-content-side\">\n        <div>CNY</div>\n        <div style=\"padding: 20px 0;\">1.00</div>\n      </div>\n      <div class=\"rate-box-content-icon\">exchange</div>\n      <div class=\"rate-box-content-side\">\n        <div>USD</div>\n        <div style=\"padding: 20px 0;\">1.00</div>\n      </div>\n    </div>\n    <div style=\"text-align: center;padding-bottom: 20px;\">1人民币=0.15美元</div>\n  </div>\n\n  <div class=\"tips-box\">\n    汇率受市场变化和交易时间的影响，在交易前需要您确认有7位小数的实际汇率。\n  </div>\n\n  <div class=\"table-box\">\n    <div class=\"table-title\">外汇汇率</div>\n    <div class=\"table-column\">\n      <div class=\"table-column-item\">货币</div>\n      <div class=\"table-column-item\">买入价</div>\n      <div class=\"table-column-item\">卖出价</div>\n    </div>\n    <div class=\"table-column\" *ngFor=\"let item of array\">\n      <div class=\"table-column-item\">{{ item.coint }}</div>\n      <div class=\"table-column-item\">{{ item.price1 }}</div>\n      <div class=\"table-column-item\">{{ item.price2 }}</div>\n    </div>\n  </div>\n\n  <div class=\"tips-bottom-box\">\n    <div>\n      上次更新时间为2021年02月18日CST\n    </div>\n    <div>\n      这些汇率只是指示性汇率，汇率是根据交易日开始时的价格确定的。您在每笔交易前需要确认汇率。\n    </div>\n  </div>\n\n  <div class=\"button-box\">\n    <div class=\"button\">\n      外汇服务\n    </div>\n  </div>\n</div> -->\n\n<div>\n  <router-outlet></router-outlet>\n</div>"
 
 /***/ }),
 
@@ -37,15 +37,21 @@ module.exports = "<!--The content below is only a placeholder and can be replace
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("./node_modules/@angular/router/esm5/router.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
 
 var AppComponent = (function () {
-    function AppComponent() {
+    function AppComponent(router) {
+        this.router = router;
         this.title = 'ng5';
         this.array = [
             { coint: '澳元', price1: 0.1231231, price2: 1.1231233 },
@@ -64,6 +70,7 @@ var AppComponent = (function () {
             window.jsBridge.call(JSON.stringify(param));
         }
         window.callH5Method = this.callH5Method;
+        this.router.navigate(['login']);
         // setTimeout(() => {
         //   {
         //     let param = {method:'hsbc',value:'I come from H5 click!',callback:'callH5Method'};
@@ -87,7 +94,8 @@ var AppComponent = (function () {
             selector: 'app-root',
             template: __webpack_require__("./src/app/app.component.html"),
             styles: [__webpack_require__("./src/app/app.component.css")]
-        })
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]])
     ], AppComponent);
     return AppComponent;
 }());
@@ -136,10 +144,10 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 var myRoots = [
-    { path: '', component: __WEBPACK_IMPORTED_MODULE_8__home_home_component__["a" /* HomeComponent */], pathMatch: 'full', canActivate: [__WEBPACK_IMPORTED_MODULE_13__auth_guard__["a" /* AuthGuard */]] },
+    { path: '', component: __WEBPACK_IMPORTED_MODULE_8__home_home_component__["a" /* HomeComponent */], pathMatch: 'full' },
     { path: 'register', component: __WEBPACK_IMPORTED_MODULE_10__registration_registration_component__["a" /* RegistrationComponent */] },
     { path: 'login', component: __WEBPACK_IMPORTED_MODULE_11__login_login_component__["a" /* LoginComponent */] },
-    { path: 'home', component: __WEBPACK_IMPORTED_MODULE_8__home_home_component__["a" /* HomeComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_13__auth_guard__["a" /* AuthGuard */]] }
+    { path: 'home', component: __WEBPACK_IMPORTED_MODULE_8__home_home_component__["a" /* HomeComponent */] }
 ];
 var AppModule = (function () {
     function AppModule() {
@@ -157,7 +165,7 @@ var AppModule = (function () {
             imports: [
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */], __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_animations__["a" /* BrowserAnimationsModule */], __WEBPACK_IMPORTED_MODULE_5__angular_forms__["d" /* FormsModule */], __WEBPACK_IMPORTED_MODULE_5__angular_forms__["i" /* ReactiveFormsModule */],
                 __WEBPACK_IMPORTED_MODULE_4__angular_material__["a" /* MatButtonModule */], __WEBPACK_IMPORTED_MODULE_4__angular_material__["b" /* MatCardModule */], __WEBPACK_IMPORTED_MODULE_4__angular_material__["c" /* MatInputModule */], __WEBPACK_IMPORTED_MODULE_4__angular_material__["d" /* MatSnackBarModule */], __WEBPACK_IMPORTED_MODULE_4__angular_material__["e" /* MatToolbarModule */],
-                __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* RouterModule */].forRoot(myRoots)
+                __WEBPACK_IMPORTED_MODULE_3__angular_router__["c" /* RouterModule */].forRoot(myRoots, { useHash: true, preloadingStrategy: __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* NoPreloading */] })
             ],
             providers: [__WEBPACK_IMPORTED_MODULE_12__auth_service__["a" /* AuthService */], __WEBPACK_IMPORTED_MODULE_13__auth_guard__["a" /* AuthGuard */]],
             bootstrap: [__WEBPACK_IMPORTED_MODULE_7__app_component__["a" /* AppComponent */]]
@@ -207,7 +215,7 @@ var AuthGuard = (function () {
     AuthGuard = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* Injectable */])(),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__auth_service__["a" /* AuthService */],
-            __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* Router */]])
+            __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */]])
     ], AuthGuard);
     return AuthGuard;
 }());
@@ -253,7 +261,7 @@ var AuthService = (function () {
     };
     AuthService = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* Injectable */])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]])
     ], AuthService);
     return AuthService;
 }());
@@ -265,14 +273,14 @@ var AuthService = (function () {
 /***/ "./src/app/home/home.component.css":
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = "div {\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n}\n.page-content {\n  background: #f7f7f7;\n  min-height: 100vh;\n}\n.type-box {\n  padding: 15px;\n  -webkit-box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.1);\n          box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.1);\n  background: #fff;\n}\n.type-title {\n  font-size:16px;\n  font-weight: 500;\n  color: #333;\n  letter-spacing: 0px;\n}\n.type-item-box {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n}\n.type-item {\n  padding-top: 10px;\n  -webkit-box-flex: 1;\n      -ms-flex: 1;\n          flex: 1;\n}\n.rate-box {\n  background: #fff;\n  margin-top: 10px;\n  -webkit-box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.1);\n          box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.1);\n}\n.rate-box-title {\n  border-bottom: 1px solid #ededed;\n  padding: 15px;\n  font-weight: 400;\n  font-size: 16px;\n  color: #333;\n  line-height: 20px;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: justify;\n      -ms-flex-pack: justify;\n          justify-content: space-between;\n}\n.rate-box-content {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n}\n.rate-box-content-side {\n  width: 40%;\n  text-align: center;\n  margin-top: 20px;\n}\n.rate-box-content-icon {\n  width: 20%;\n  text-align: center;\n  margin-top: 20px;\n}\n.tips-box {\n  padding:15px;\n  font-weight: 300;\n  font-size: 13px;\n  color: #5c5c5c;\n  line-height: 20px;\n}\n.table-box {\n  background: #fff;\n  margin-top:10px;\n}\n.table-title {\n  -webkit-box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.1);\n          box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.1);\n  border-bottom: 1px solid #ededed;\n  padding: 15px;\n  font-weight: 400;\n  font-size: 16px;\n  color: #333;\n  line-height: 20px;\n}\n.table-column {\n  height: 33px;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  margin-top: 20px;\n}\n.table-column-item {\n  -webkit-box-flex: 1;\n      -ms-flex: 1;\n          flex: 1;\n  text-align: center;\n  font-weight: 400;\n  font-size: 13px;\n  color: #333;\n}\n.tips-bottom-box {\n  padding: 15px;\n  font-weight: 300;\n  font-size: 13px;\n  color: #5c5c5c;\n  letter-spacing: 0px;\n}\n.button-box {\n  padding: 15px;\n  /* background: #db0011; */\n  color: #fff;\n  text-align: center;\n}\n.button {\n  background: #db0011;\n  padding: 15px;\n}"
 
 /***/ }),
 
 /***/ "./src/app/home/home.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  home works!\n</p>\n"
+module.exports = "<div class=\"page-content\">\n  <div class=\"type-box\">\n    <div class=\"type-title\">种类</div>\n    <div class=\"type-item-box\">\n      <div class=\"type-item\">Note</div>\n      <div class=\"type-item\">Telegraphic</div>\n    </div>\n  </div>\n\n  <div class=\"rate-box\">\n    <div class=\"rate-box-title\">\n      <div class=\"rate-box-title-item\">货币换算器</div>\n      <div class=\"rate-box-title-item\" (click)=\"callNative()\">重置</div>\n    </div>\n    <div class=\"rate-box-content\">\n      <div class=\"rate-box-content-side\">\n        <div>CNY</div>\n        <div style=\"padding: 20px 0;\">1.00</div>\n      </div>\n      <div class=\"rate-box-content-icon\">exchange</div>\n      <div class=\"rate-box-content-side\">\n        <div>USD</div>\n        <div style=\"padding: 20px 0;\">1.00</div>\n      </div>\n    </div>\n    <div style=\"text-align: center;padding-bottom: 20px;\">1人民币=0.15美元</div>\n  </div>\n\n  <div class=\"tips-box\">\n    汇率受市场变化和交易时间的影响，在交易前需要您确认有7位小数的实际汇率。\n  </div>\n\n  <div class=\"table-box\">\n    <div class=\"table-title\">外汇汇率</div>\n    <div class=\"table-column\">\n      <div class=\"table-column-item\">货币</div>\n      <div class=\"table-column-item\">买入价</div>\n      <div class=\"table-column-item\">卖出价</div>\n    </div>\n    <div class=\"table-column\" *ngFor=\"let item of array\">\n      <div class=\"table-column-item\">{{ item.coint }}</div>\n      <div class=\"table-column-item\">{{ item.price1 }}</div>\n      <div class=\"table-column-item\">{{ item.price2 }}</div>\n    </div>\n  </div>\n\n  <div class=\"tips-bottom-box\">\n    <div>\n      上次更新时间为2021年02月18日CST\n    </div>\n    <div>\n      这些汇率只是指示性汇率，汇率是根据交易日开始时的价格确定的。您在每笔交易前需要确认汇率。\n    </div>\n  </div>\n\n  <div class=\"button-box\">\n    <div class=\"button\">\n      外汇服务\n    </div>\n  </div>\n</div>"
 
 /***/ }),
 
@@ -288,22 +296,46 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
 
 var HomeComponent = (function () {
     function HomeComponent() {
+        this.title = 'ng5';
+        this.array = [
+            { coint: '澳元', price1: 0.1231231, price2: 1.1231233 },
+            { coint: '加元', price1: 0.1231231, price2: 1.1231233 },
+            { coint: '美元', price1: 0.1231231, price2: 1.1231233 },
+            { coint: '港币', price1: 0.1231231, price2: 1.1231233 },
+            { coint: '日元', price1: 0.1231231, price2: 1.1231233 },
+            { coint: '新加坡元', price1: 0.1231231, price2: 1.1231233 },
+            { coint: '欧元', price1: 0.1231231, price2: 1.1231233 },
+            { coint: '英镑', price1: 0.1231231, price2: 1.1231233 }
+        ];
     }
     HomeComponent.prototype.ngOnInit = function () {
+        if (window.jsBridge) {
+            var param = { method: 'hsbc', value: 'I come from H5 message!', callback: 'callH5Method' };
+            window.jsBridge.call(JSON.stringify(param));
+        }
+        // (window as any).callH5Method = this.callH5Method;
+        // setTimeout(() => {
+        //   {
+        //     let param = {method:'hsbc',value:'I come from H5 click!',callback:'callH5Method'};
+        //     (window as any).jsBridge.call(JSON.stringify(param));
+        //    }
+        // }, 1000);
+    };
+    HomeComponent.prototype.callNative = function () {
+        if (window.jsBridge) {
+            var param = { method: 'hsbc', value: 'I come from H5 click!', callback: 'callH5Method' };
+            window.jsBridge.call(JSON.stringify(param));
+        }
     };
     HomeComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'app-home',
             template: __webpack_require__("./src/app/home/home.component.html"),
             styles: [__webpack_require__("./src/app/home/home.component.css")]
-        }),
-        __metadata("design:paramtypes", [])
+        })
     ], HomeComponent);
     return HomeComponent;
 }());
@@ -322,7 +354,7 @@ module.exports = ""
 /***/ "./src/app/login/login.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\" style=\"margin-top:100px;\">\n  <div class=\"row justify-content-center align-items-center\">\n    <div class=\"col-lg-4 col-sm-4 center-block \">\n      <mat-card>\n        <mat-card-header>\n          <img mat-card-avatar src=\"../../../assets/images/App-login-manager-icon.png\">\n          <mat-card-title>Login here</mat-card-title>\n          <mat-card-subtitle>Trust us for your data, and sign up</mat-card-subtitle>\n        </mat-card-header>\n        <mat-card-content>\n          <div class=\"signup-fields\">\n            <form id=\"loginForm\" [formGroup]=\"form\" (ngSubmit)=\"login()\">\n              <div class=\"form-group\">\n                <input class=\"form-control\" name=\"email\" matInput type=\"email\" placeholder=\"Email\" formControlName=\"email\" />\n              </div>\n              <div class=\"form-group\">\n                <input class=\"form-control\" name=\"password\" matInput type=\"password\" placeholder=\"Password\" formControlName=\"password\" />\n              </div>\n              <div>\n                <button id=\"btnSubmit\" mat-raised-button type=\"submit\" color=\"primary\">Login</button>\n              </div>\n            </form>\n          </div>\n        </mat-card-content>\n      </mat-card>\n    </div>\n  </div>\n</div>"
+module.exports = "<!-- <div class=\"container\" style=\"margin-top:100px;\">\n  <div class=\"row justify-content-center align-items-center\">\n    <div class=\"col-lg-4 col-sm-4 center-block \">\n      <mat-card>\n        <mat-card-header>\n          <img mat-card-avatar src=\"../../../assets/images/App-login-manager-icon.png\">\n          <mat-card-title>Login here</mat-card-title>\n          <mat-card-subtitle>Trust us for your data, and sign up</mat-card-subtitle>\n        </mat-card-header>\n        <mat-card-content>\n          <div class=\"signup-fields\">\n            <form id=\"loginForm\" [formGroup]=\"form\" (ngSubmit)=\"login()\">\n              <div class=\"form-group\">\n                <input class=\"form-control\" name=\"email\" matInput type=\"email\" placeholder=\"Email\" formControlName=\"email\" />\n              </div>\n              <div class=\"form-group\">\n                <input class=\"form-control\" name=\"password\" matInput type=\"password\" placeholder=\"Password\" formControlName=\"password\" />\n              </div>\n              <div>\n                <button id=\"btnSubmit\" mat-raised-button type=\"submit\" color=\"primary\">Login</button>\n              </div>\n            </form>\n          </div>\n        </mat-card-content>\n      </mat-card>\n    </div>\n  </div>\n</div> -->\n<h1>\n  login works\n</h1>"
 
 /***/ }),
 
@@ -373,7 +405,7 @@ var LoginComponent = (function () {
             styles: [__webpack_require__("./src/app/login/login.component.css")]
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* FormBuilder */],
-            __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* Router */],
+            __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */],
             __WEBPACK_IMPORTED_MODULE_3__auth_service__["a" /* AuthService */]])
     ], LoginComponent);
     return LoginComponent;

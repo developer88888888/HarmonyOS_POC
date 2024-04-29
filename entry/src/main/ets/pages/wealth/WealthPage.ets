@@ -35,7 +35,7 @@ export struct WealthPage {
         //   })
 
         BridgeWebView({
-          webUrl: $rawfile('index2.html'),
+          webUrl: $rawfile('index.html'),
           controller: this.controller
         })
           .height("100%")
