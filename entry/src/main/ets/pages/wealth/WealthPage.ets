@@ -9,6 +9,8 @@ export struct WealthPage {
   private controller: webview.WebviewController = new webview.WebviewController();
 
   aboutToAppear() {
+    // 配置Web开启调试模式
+    webview.WebviewController.setWebDebuggingAccess(true);
     JsBridge.getInstance().register("hsbc", (param: string, callback: JsCallback) => {
       let result = '';
       if (param) {

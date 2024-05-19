@@ -27,7 +27,7 @@ module.exports = "div {\n  -webkit-box-sizing: border-box;\n          box-sizing
 /***/ "./src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<!--The content below is only a placeholder and can be replaced.-->\n<!-- <div class=\"page-content\">\n  <div class=\"type-box\">\n    <div class=\"type-title\">种类</div>\n    <div class=\"type-item-box\">\n      <div class=\"type-item\">Note</div>\n      <div class=\"type-item\">Telegraphic</div>\n    </div>\n  </div>\n\n  <div class=\"rate-box\">\n    <div class=\"rate-box-title\">\n      <div class=\"rate-box-title-item\">货币换算器</div>\n      <div class=\"rate-box-title-item\" (click)=\"callNative()\">重置</div>\n    </div>\n    <div class=\"rate-box-content\">\n      <div class=\"rate-box-content-side\">\n        <div>CNY</div>\n        <div style=\"padding: 20px 0;\">1.00</div>\n      </div>\n      <div class=\"rate-box-content-icon\">exchange</div>\n      <div class=\"rate-box-content-side\">\n        <div>USD</div>\n        <div style=\"padding: 20px 0;\">1.00</div>\n      </div>\n    </div>\n    <div style=\"text-align: center;padding-bottom: 20px;\">1人民币=0.15美元</div>\n  </div>\n\n  <div class=\"tips-box\">\n    汇率受市场变化和交易时间的影响，在交易前需要您确认有7位小数的实际汇率。\n  </div>\n\n  <div class=\"table-box\">\n    <div class=\"table-title\">外汇汇率</div>\n    <div class=\"table-column\">\n      <div class=\"table-column-item\">货币</div>\n      <div class=\"table-column-item\">买入价</div>\n      <div class=\"table-column-item\">卖出价</div>\n    </div>\n    <div class=\"table-column\" *ngFor=\"let item of array\">\n      <div class=\"table-column-item\">{{ item.coint }}</div>\n      <div class=\"table-column-item\">{{ item.price1 }}</div>\n      <div class=\"table-column-item\">{{ item.price2 }}</div>\n    </div>\n  </div>\n\n  <div class=\"tips-bottom-box\">\n    <div>\n      上次更新时间为2021年02月18日CST\n    </div>\n    <div>\n      这些汇率只是指示性汇率，汇率是根据交易日开始时的价格确定的。您在每笔交易前需要确认汇率。\n    </div>\n  </div>\n\n  <div class=\"button-box\">\n    <div class=\"button\">\n      外汇服务\n    </div>\n  </div>\n</div> -->\n\n<div>\n  <router-outlet></router-outlet>\n</div>"
+module.exports = "<!--The content below is only a placeholder and can be replaced.-->\n<!-- <div class=\"page-content\">\n  <div class=\"type-box\">\n    <div class=\"type-title\">种类</div>\n    <div class=\"type-item-box\">\n      <div class=\"type-item\">Note</div>\n      <div class=\"type-item\">Telegraphic</div>\n    </div>\n  </div>\n\n  <div class=\"rate-box\">\n    <div class=\"rate-box-title\">\n      <div class=\"rate-box-title-item\">货币换算器</div>\n      <div class=\"rate-box-title-item\" (click)=\"callNative()\">重置</div>\n    </div>\n    <div class=\"rate-box-content\">\n      <div class=\"rate-box-content-side\">\n        <div>CNY</div>\n        <div style=\"padding: 20px 0;\">1.00</div>\n      </div>\n      <div class=\"rate-box-content-icon\">exchange</div>\n      <div class=\"rate-box-content-side\">\n        <div>USD</div>\n        <div style=\"padding: 20px 0;\">1.00</div>\n      </div>\n    </div>\n    <div style=\"text-align: center;padding-bottom: 20px;\">1人民币=0.15美元</div>\n  </div>\n\n  <div class=\"tips-box\">\n    汇率受市场变化和交易时间的影响，在交易前需要您确认有7位小数的实际汇率。\n  </div>\n\n  <div class=\"table-box\">\n    <div class=\"table-title\">外汇汇率</div>\n    <div class=\"table-column\">\n      <div class=\"table-column-item\">货币</div>\n      <div class=\"table-column-item\">买入价</div>\n      <div class=\"table-column-item\">卖出价</div>\n    </div>\n    <div class=\"table-column\" *ngFor=\"let item of array\">\n      <div class=\"table-column-item\">{{ item.coint }}</div>\n      <div class=\"table-column-item\">{{ item.price1 }}</div>\n      <div class=\"table-column-item\">{{ item.price2 }}</div>\n    </div>\n  </div>\n\n  <div class=\"tips-bottom-box\">\n    <div>\n      上次更新时间为2021年02月18日CST\n    </div>\n    <div>\n      这些汇率只是指示性汇率，汇率是根据交易日开始时的价格确定的。您在每笔交易前需要确认汇率。\n    </div>\n  </div>\n\n  <div class=\"button-box\">\n    <div class=\"button\">\n      外汇服务\n    </div>\n  </div>\n</div> -->\n\n<!-- <div>\n  <router-outlet></router-outlet>\n</div> -->\n\n<div style=\"display: flex;\nalign-items: center;\nflex-direction: column;\njustify-content: center;\nheight: 100vh;\">\n  <div>\n    <label>USER</label>\n    <input type=\"text\" [(ngModel)]=\"userId\">\n  </div>\n  <div>\n    <button (click)=\"login1()\">old sdk登录</button>\n    <button (click)=\"login2()\">new sdk登录</button>\n  </div>\n</div>"
 
 /***/ }),
 
@@ -63,6 +63,7 @@ var AppComponent = (function () {
             { coint: '欧元', price1: 0.1231231, price2: 1.1231233 },
             { coint: '英镑', price1: 0.1231231, price2: 1.1231233 }
         ];
+        this.userId = '';
     }
     AppComponent.prototype.ngOnInit = function () {
         if (window.jsBridge) {
@@ -70,7 +71,7 @@ var AppComponent = (function () {
             window.jsBridge.call(JSON.stringify(param));
         }
         window.callH5Method = this.callH5Method;
-        this.router.navigate(['login']);
+        // this.router.navigate(['login']);
         // setTimeout(() => {
         //   {
         //     let param = {method:'hsbc',value:'I come from H5 click!',callback:'callH5Method'};
@@ -88,6 +89,26 @@ var AppComponent = (function () {
         console.info('from native: ' + result);
         alert(result);
         return "Call H5 function";
+    };
+    AppComponent.prototype.login1 = function () {
+        console.log(this.userId);
+        window.myTSAccountProtection.setAuthenticatedUser(this.userId);
+        window.myTSAccountProtection.triggerActionEvent("login").then(function (actionResponse) {
+            var actionToken = actionResponse.actionToken;
+            alert('old-sdk:' + actionToken);
+            console.log(actionToken, 'old_sdk');
+            // Add code here to send the received actionToken to your backend
+        });
+    };
+    AppComponent.prototype.login2 = function () {
+        console.log(this.userId);
+        window.tsPlatform.drs.setAuthenticatedUser(this.userId);
+        window.tsPlatform.drs.triggerActionEvent("login").then(function (actionResponse) {
+            var actionToken = actionResponse.actionToken;
+            alert('new-sdk:' + actionToken);
+            console.log(actionToken, 'old_sdk');
+            // Add code here to send the received actionToken to your backend
+        });
     };
     AppComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({

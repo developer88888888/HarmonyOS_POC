@@ -15,11 +15,30 @@
   <script src="./ng5-test/vendor.bundle.js"></script>
   <script src="./ng5-test/main.bundle.js"></script>
 </body>
-<script src="https://cdn.jsdelivr.net/npm/eruda"></script>
+<script src="https://cdn.jsdelivr.net/npm/eruda" defer="true" id="eruda"></script>
 
-<script type="text/javascript">
-if (typeof eruda !== 'undefined') {
-  eruda.init();
-}
+<!--Loads the latest SDK within the major version 1
+See changelog for details and update version if necessary -->
+<script src="https://platform-websdk.transmitsecurity.io/platform-websdk/1.x/ts-platform-websdk.js" defer="true" id="ts-platform-script"></script>
+<script src="https://cdn.riskid.security/sdk/web_sdk_latest.js" defer="true" id="ts-platform-script-old"></script>
+
+
+<script>
+  document.getElementById("eruda").addEventListener("load", function() {
+    window.eruda.init();
+    if (typeof eruda !== 'undefined') {
+      eruda.init();
+    }
+  });
+
+  document.getElementById("ts-platform-script").addEventListener("load", function() {
+    console.log(window.tsPlatform);
+    window.tsPlatform.initialize({ clientId: "[CLIENT_ID]" });
+  });
+
+  document.getElementById("ts-platform-script-old").addEventListener("load", function(e) {
+    window.myTSAccountProtection = new TSAccountProtection("[CLIENT_ID]");
+    window.myTSAccountProtection.init();
+  });
 </script>
 </html>
