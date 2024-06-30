@@ -6,6 +6,10 @@ export class PageConstants {
 
   static readonly  MAIN_PAGE_URL: string = 'pages/MainPage';
 
+  static readonly LoginPage: string = 'pages/PreviewLoginPanelPage';
+
+  static readonly LoginButtonPage: string = 'pages/PreviewLoginButtonPage'
+
   static readonly HOME_INDEX: number = 0;
 
   static readonly GLOBE_INDEX: number = 1;

@@ -2,6 +2,8 @@
   "src": [
     "pages/SplashPage",
     "pages/MainPage",
+    "pages/PreviewLoginPanelPage",
+    "pages/PreviewLoginButtonPage",
     "pages/account/AccountList",
     "pages/account/AccountDetails",
     "view/WebPage",

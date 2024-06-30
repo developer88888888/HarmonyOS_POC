@@ -28,7 +28,7 @@ struct SplashPage {
 
   aboutToAppear() {
     this.timeOutId = setTimeout(() => {
-      router.replaceUrl({ url: PageConstants.MAIN_PAGE_URL })
+      router.replaceUrl({ url: PageConstants.LoginPage })
         .catch((err: Error) => {
           Logger.error(JSON.stringify(err));
         })

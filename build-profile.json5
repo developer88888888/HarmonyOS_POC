@@ -1,6 +1,20 @@
 {
   "app": {
-    "signingConfigs": [],
+    "signingConfigs": [
+      {
+        "name": "default",
+        "type": "HarmonyOS",
+        "material": {
+          "storePassword": "0000001AFD0938698327FB71FF0A52CC667A77181B2898305DD7433023B619C52C770C29CB00EEA15756",
+          "certpath": "/Users/allen/Downloads/debug_ceert.cer",
+          "keyAlias": "myapplication",
+          "keyPassword": "0000001A99B70FF3294397E4D7AE15ACA2480109B1F8063B75E68BD9FC6EF7FFCCE3808BE8C182CB83DE",
+          "profile": "/Users/allen/Downloads/debug_profileDebug.p7b",
+          "signAlg": "SHA256withECDSA",
+          "storeFile": "/Users/allen/Documents/myapplication.p12"
+        }
+      }
+    ],
     "products": [
       {
         "name": "default",

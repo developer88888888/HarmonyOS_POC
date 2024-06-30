@@ -36,6 +36,12 @@
       {
         "name": "ohos.permission.INTERNET"
       }
+    ],
+    "metadata": [ // 配置信息如下
+      {
+        "name": "client_id",
+        "value": "111320909"
+      }
     ]
   }
 }
